@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyBuyModelStoreContainer" CdmEntityContainer="MyBuyEntities">
+    <EntitySetMapping Name="tbCommodity">
+      <EntityTypeMapping TypeName="MyBuyModel.tbCommodity">
+        <MappingFragment StoreEntitySet="tbCommodity">
+          <ScalarProperty Name="Commodity_Userint" ColumnName="Commodity_Userint" />
+          <ScalarProperty Name="Commodity_Starint" ColumnName="Commodity_Starint" />
+          <ScalarProperty Name="Commodity_OldPriceint" ColumnName="Commodity_OldPriceint" />
+          <ScalarProperty Name="Commodity_Quality" ColumnName="Commodity_Quality" />
+          <ScalarProperty Name="Commodity_Priceint" ColumnName="Commodity_Priceint" />
+          <ScalarProperty Name="Commodity_Descriptionstr" ColumnName="Commodity_Descriptionstr" />
+          <ScalarProperty Name="Commodity_Namestr" ColumnName="Commodity_Namestr" />
+          <ScalarProperty Name="Commodity_Idstr" ColumnName="Commodity_Idstr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUser_Info">
+      <EntityTypeMapping TypeName="MyBuyModel.tbUser_Info">
+        <MappingFragment StoreEntitySet="tbUser_Info">
+          <ScalarProperty Name="User_Pwdstr" ColumnName="User_Pwdstr" />
+          <ScalarProperty Name="User_Emailstr" ColumnName="User_Emailstr" />
+          <ScalarProperty Name="User_Idint" ColumnName="User_Idint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

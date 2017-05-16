@@ -1,0 +1,14 @@
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\obj\Debug\MyBuy.IDAL.csprojResolveAssemblyReference.cache
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\MyBuy.IDAL.dll.config
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\MyBuy.IDAL.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\MyBuy.IDAL.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\EntityFramework.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\MyBuy.Model.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\MyBuy.Model.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\EntityFramework.xml
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\obj\Debug\MyBuy.IDAL.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IDAL\obj\Debug\MyBuy.IDAL.pdb

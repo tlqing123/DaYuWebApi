@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyBuyModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MyBuyEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tbCommodity" EntityType="MyBuyModel.tbCommodity" />
+    <EntitySet Name="tbUser_Info" EntityType="MyBuyModel.tbUser_Info" />
+    <AssociationSet Name="FK_tbCommodity_tbUser_Info_UserId" Association="MyBuyModel.FK_tbCommodity_tbUser_Info_UserId">
+      <End Role="tbUser_Info" EntitySet="tbUser_Info" />
+      <End Role="tbCommodity" EntitySet="tbCommodity" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbCommodity">
+    <Key>
+      <PropertyRef Name="Commodity_Idstr" />
+    </Key>
+    <Property Type="String" Name="Commodity_Idstr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Commodity_Namestr" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Commodity_Descriptionstr" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Commodity_Priceint" />
+    <Property Type="String" Name="Commodity_Quality" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Commodity_OldPriceint" />
+    <Property Type="Int32" Name="Commodity_Starint" />
+    <Property Type="Byte" Name="Commodity_Userint" />
+    <NavigationProperty Name="tbUser_Info" Relationship="MyBuyModel.FK_tbCommodity_tbUser_Info_UserId" FromRole="tbCommodity" ToRole="tbUser_Info" />
+  </EntityType>
+  <EntityType Name="tbUser_Info">
+    <Key>
+      <PropertyRef Name="User_Idint" />
+    </Key>
+    <Property Type="Byte" Name="User_Idint" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="User_Emailstr" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="User_Pwdstr" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbCommodity" Relationship="MyBuyModel.FK_tbCommodity_tbUser_Info_UserId" FromRole="tbUser_Info" ToRole="tbCommodity" />
+  </EntityType>
+  <Association Name="FK_tbCommodity_tbUser_Info_UserId">
+    <End Type="MyBuyModel.tbUser_Info" Role="tbUser_Info" Multiplicity="0..1" />
+    <End Type="MyBuyModel.tbCommodity" Role="tbCommodity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbUser_Info">
+        <PropertyRef Name="User_Idint" />
+      </Principal>
+      <Dependent Role="tbCommodity">
+        <PropertyRef Name="Commodity_Userint" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

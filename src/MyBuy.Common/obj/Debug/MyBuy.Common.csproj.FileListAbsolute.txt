@@ -1,0 +1,9 @@
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\bin\Debug\MyBuy.Common.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\bin\Debug\MyBuy.Common.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\obj\Debug\MyBuy.Common.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\obj\Debug\MyBuy.Common.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\obj\Debug\MyBuy.Common.csprojResolveAssemblyReference.cache
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\bin\Debug\MyBuy.Common.dll.config
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\bin\Debug\jose-jwt.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\bin\Debug\Newtonsoft.Json.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Common\bin\Debug\Newtonsoft.Json.xml

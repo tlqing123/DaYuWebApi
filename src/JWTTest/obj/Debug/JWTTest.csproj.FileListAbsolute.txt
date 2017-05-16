@@ -1,0 +1,9 @@
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\bin\Debug\JWTTest.exe.config
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\bin\Debug\JWTTest.exe
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\bin\Debug\JWTTest.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\bin\Debug\jose-jwt.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\bin\Debug\Newtonsoft.Json.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\bin\Debug\Newtonsoft.Json.xml
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\obj\Debug\JWTTest.exe
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\obj\Debug\JWTTest.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\obj\Debug\JWTTest.csprojResolveAssemblyReference.cache

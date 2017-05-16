@@ -1,0 +1,12 @@
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\obj\Debug\MyBuy.IBLL.csprojResolveAssemblyReference.cache
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\MyBuy.IBLL.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\MyBuy.IBLL.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\MyBuy.IDAL.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\MyBuy.Model.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\EntityFramework.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\MyBuy.IDAL.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\MyBuy.Model.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\EntityFramework.xml
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\obj\Debug\MyBuy.IBLL.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.IBLL\obj\Debug\MyBuy.IBLL.pdb

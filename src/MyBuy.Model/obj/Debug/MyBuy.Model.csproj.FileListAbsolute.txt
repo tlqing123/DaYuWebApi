@@ -1,0 +1,12 @@
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\MyBuy.Model.dll.config
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\MyBuy.Model.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\MyBuy.Model.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\EntityFramework.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\EntityFramework.xml
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\obj\Debug\MyBuy.Model.dll
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\obj\Debug\MyBuy.Model.pdb
+E:\Project\MyBuy\MyBuyApi\MyBuy\MyBuy.Model\obj\Debug\MyBuy.Model.csprojResolveAssemblyReference.cache
