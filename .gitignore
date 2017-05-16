@@ -1,4 +1,4 @@
-#自己忽略的文件
+#忽略bin的文件
 
 src/MyBuy.BLL/bin
 src/MyBuy.Model/bin
@@ -8,5 +8,16 @@ src/MyBuy.JWTTest/bin
 src/MyBuy.IBLL/bin
 src/MyBuy.DalFactory/bin
 src/MyBuy.Common/bin
+src/MyBuy.WebApi/bin
 
+# 忽略obj目录
+src/MyBuy.BLL/obj
+src/MyBuy.Model/obj
+src/MyBuy.DAL/obj
+src/MyBuy.IDAL/obj
+src/MyBuy.JWTTest/obj
+src/MyBuy.IBLL/obj
+src/MyBuy.DalFactory/obj
+src/MyBuy.Common/obj
+src/MyBuy.WebApi/obj
 
