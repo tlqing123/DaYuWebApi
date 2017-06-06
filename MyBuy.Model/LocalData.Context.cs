@@ -25,7 +25,14 @@ namespace MyBuy.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<tbCommodity> tbCommodity { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<tbComments> tbComments { get; set; }
+        public DbSet<tbGoods> tbGoods { get; set; }
+        public DbSet<tbStars> tbStars { get; set; }
+        public DbSet<tbType> tbType { get; set; }
         public DbSet<tbUser_Info> tbUser_Info { get; set; }
+        public DbSet<VI_COMMENTS> VI_COMMENTS { get; set; }
+        public DbSet<VI_GOODSES> VI_GOODSES { get; set; }
+        public DbSet<VI_USER_INFO> VI_USER_INFO { get; set; }
     }
 }

@@ -1,0 +1,734 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MyBuyModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MyBuyModel1StoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="MyBuyModel1.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbComments" EntityType="MyBuyModel1.Store.tbComments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbGoods" EntityType="MyBuyModel1.Store.tbGoods" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbStars" EntityType="MyBuyModel1.Store.tbStars" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbType" EntityType="MyBuyModel1.Store.tbType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbUser_Info" EntityType="MyBuyModel1.Store.tbUser_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VI_COMMENTS" EntityType="MyBuyModel1.Store.VI_COMMENTS" store:Type="Views" store:Schema="dbo" store:Name="VI_COMMENTS">
+            <DefiningQuery>SELECT 
+      [VI_COMMENTS].[Coment_IDint] AS [Coment_IDint], 
+      [VI_COMMENTS].[Coment_Contentstr] AS [Coment_Contentstr], 
+      [VI_COMMENTS].[Cooent_Parentint] AS [Cooent_Parentint], 
+      [VI_COMMENTS].[Comment_Datedate] AS [Comment_Datedate], 
+      [VI_COMMENTS].[Goods_Idstr] AS [Goods_Idstr], 
+      [VI_COMMENTS].[User_IDint] AS [User_IDint], 
+      [VI_COMMENTS].[User_Namestr] AS [User_Namestr]
+      FROM [dbo].[VI_COMMENTS] AS [VI_COMMENTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VI_GOODSES" EntityType="MyBuyModel1.Store.VI_GOODSES" store:Type="Views" store:Schema="dbo" store:Name="VI_GOODSES">
+            <DefiningQuery>SELECT 
+      [VI_GOODSES].[User_IDint] AS [User_IDint], 
+      [VI_GOODSES].[User_Namestr] AS [User_Namestr], 
+      [VI_GOODSES].[Goods_Idstr] AS [Goods_Idstr], 
+      [VI_GOODSES].[Goods_Namestr] AS [Goods_Namestr], 
+      [VI_GOODSES].[Goods_Descriptionstr] AS [Goods_Descriptionstr], 
+      [VI_GOODSES].[Goods_Priceint] AS [Goods_Priceint], 
+      [VI_GOODSES].[Goos_Quality] AS [Goos_Quality], 
+      [VI_GOODSES].[Goods_OldPriceint] AS [Goods_OldPriceint], 
+      [VI_GOODSES].[Goods_Starsint] AS [Goods_Starsint], 
+      [VI_GOODSES].[Goods_Imgstr] AS [Goods_Imgstr], 
+      [VI_GOODSES].[Goods_Createdate] AS [Goods_Createdate], 
+      [VI_GOODSES].[IDint] AS [IDint], 
+      [VI_GOODSES].[Type_Namestr] AS [Type_Namestr], 
+      [VI_GOODSES].[Type_IDstr] AS [Type_IDstr]
+      FROM [dbo].[VI_GOODSES] AS [VI_GOODSES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VI_USER_INFO" EntityType="MyBuyModel1.Store.VI_USER_INFO" store:Type="Views" store:Schema="dbo" store:Name="VI_USER_INFO">
+            <DefiningQuery>SELECT 
+      [VI_USER_INFO].[User_IDint] AS [User_IDint], 
+      [VI_USER_INFO].[User_Emailstr] AS [User_Emailstr], 
+      [VI_USER_INFO].[User_Biostr] AS [User_Biostr], 
+      [VI_USER_INFO].[User_Nicknamestr] AS [User_Nicknamestr], 
+      [VI_USER_INFO].[User_Genderchar] AS [User_Genderchar], 
+      [VI_USER_INFO].[User_Birthdaydate] AS [User_Birthdaydate], 
+      [VI_USER_INFO].[User_Phonestr] AS [User_Phonestr], 
+      [VI_USER_INFO].[User_Iconstr] AS [User_Iconstr], 
+      [VI_USER_INFO].[User_Adress] AS [User_Adress], 
+      [VI_USER_INFO].[User_Hobaystr] AS [User_Hobaystr], 
+      [VI_USER_INFO].[User_CreateTimedate] AS [User_CreateTimedate], 
+      [VI_USER_INFO].[User_LastLoginTinedate] AS [User_LastLoginTinedate], 
+      [VI_USER_INFO].[User_Namestr] AS [User_Namestr], 
+      [VI_USER_INFO].[User_Realnamestr] AS [User_Realnamestr]
+      FROM [dbo].[VI_USER_INFO] AS [VI_USER_INFO]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tbComments_tbUserInfo_UserID" Association="MyBuyModel1.Store.FK_tbComments_tbUserInfo_UserID">
+            <End Role="tbUser_Info" EntitySet="tbUser_Info" />
+            <End Role="tbComments" EntitySet="tbComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbGoods_tbType_TypeID" Association="MyBuyModel1.Store.FK_tbGoods_tbType_TypeID">
+            <End Role="tbType" EntitySet="tbType" />
+            <End Role="tbGoods" EntitySet="tbGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbGoods_tbUserInfo_UserID" Association="MyBuyModel1.Store.FK_tbGoods_tbUserInfo_UserID">
+            <End Role="tbUser_Info" EntitySet="tbUser_Info" />
+            <End Role="tbGoods" EntitySet="tbGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbStars_tbGoods_GoodsID" Association="MyBuyModel1.Store.FK_tbStars_tbGoods_GoodsID">
+            <End Role="tbGoods" EntitySet="tbGoods" />
+            <End Role="tbStars" EntitySet="tbStars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbStars_tbUserInfo_UserID" Association="MyBuyModel1.Store.FK_tbStars_tbUserInfo_UserID">
+            <End Role="tbUser_Info" EntitySet="tbUser_Info" />
+            <End Role="tbStars" EntitySet="tbStars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbType_tbType" Association="MyBuyModel1.Store.FK_tbType_tbType">
+            <End Role="tbType" EntitySet="tbType" />
+            <End Role="tbType1" EntitySet="tbType" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbComments">
+          <Key>
+            <PropertyRef Name="Coment_IDint" />
+          </Key>
+          <Property Name="Coment_IDint" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Coment_Contentstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Coment_GoodsIDstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cooent_Parentint" Type="int" />
+          <Property Name="Coment_UserIDint" Type="int" />
+          <Property Name="Comment_Datedate" Type="date" />
+          <Property Name="Coment_Delflagstr" Type="int" />
+        </EntityType>
+        <EntityType Name="tbGoods">
+          <Key>
+            <PropertyRef Name="Goods_Idstr" />
+          </Key>
+          <Property Name="Goods_Idstr" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Goods_Namestr" Type="nvarchar" MaxLength="32" />
+          <Property Name="Goods_Descriptionstr" Type="nvarchar" MaxLength="100" />
+          <Property Name="Goods_Priceint" Type="float" />
+          <Property Name="Goos_Quality" Type="nvarchar" MaxLength="10" />
+          <Property Name="Goods_OldPriceint" Type="int" />
+          <Property Name="Goods_Starsint" Type="int" />
+          <Property Name="Goods_Imgstr" Type="nvarchar" MaxLength="120" />
+          <Property Name="Goods_Delflagint" Type="int" />
+          <Property Name="Goods_Createdate" Type="date" />
+          <Property Name="Goods_UserIDint" Type="int" />
+          <Property Name="Goods_TypeIDint" Type="int" />
+        </EntityType>
+        <EntityType Name="tbStars">
+          <Key>
+            <PropertyRef Name="IDint" />
+          </Key>
+          <Property Name="IDint" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stars_UserIDint" Type="int" />
+          <Property Name="Stars_GoodsIDstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stars_Datedate" Type="date" />
+        </EntityType>
+        <EntityType Name="tbType">
+          <Key>
+            <PropertyRef Name="IDint" />
+          </Key>
+          <Property Name="IDint" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type_Namestr" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type_Delfalgint" Type="int" />
+          <Property Name="Type_IDstr" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbUser_Info">
+          <Key>
+            <PropertyRef Name="User_IDint" />
+          </Key>
+          <Property Name="User_IDint" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="User_Emailstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Pwdstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Biostr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Nicknamestr" Type="nvarchar" MaxLength="24" />
+          <Property Name="User_Genderchar" Type="char" MaxLength="2" />
+          <Property Name="User_Birthdaydate" Type="datetime" />
+          <Property Name="User_Phonestr" Type="nvarchar" MaxLength="11" />
+          <Property Name="User_Iconstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Adress" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Hobaystr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Ipv4str" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_CreateTimedate" Type="datetime" />
+          <Property Name="User_LastLoginPhonestr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_LastLoginTinedate" Type="datetime" />
+          <Property Name="User_Namestr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Realnamestr" Type="nvarchar" MaxLength="10" />
+          <Property Name="User_Sateint" Type="int" />
+          <Property Name="User_Codestr" Type="nvarchar" MaxLength="10" />
+          <Property Name="User_Expdate" Type="date" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“MyBuy.dbo.VI_COMMENTS”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VI_COMMENTS">
+          <Key>
+            <PropertyRef Name="Coment_IDint" />
+            <PropertyRef Name="Goods_Idstr" />
+            <PropertyRef Name="User_IDint" />
+          </Key>
+          <Property Name="Coment_IDint" Type="int" Nullable="false" />
+          <Property Name="Coment_Contentstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cooent_Parentint" Type="int" />
+          <Property Name="Comment_Datedate" Type="date" />
+          <Property Name="Goods_Idstr" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="User_IDint" Type="int" Nullable="false" />
+          <Property Name="User_Namestr" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“MyBuy.dbo.VI_GOODSES”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VI_GOODSES">
+          <Key>
+            <PropertyRef Name="User_IDint" />
+            <PropertyRef Name="Goods_Idstr" />
+            <PropertyRef Name="IDint" />
+          </Key>
+          <Property Name="User_IDint" Type="int" Nullable="false" />
+          <Property Name="User_Namestr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Goods_Idstr" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Goods_Namestr" Type="nvarchar" MaxLength="32" />
+          <Property Name="Goods_Descriptionstr" Type="nvarchar" MaxLength="100" />
+          <Property Name="Goods_Priceint" Type="float" />
+          <Property Name="Goos_Quality" Type="nvarchar" MaxLength="10" />
+          <Property Name="Goods_OldPriceint" Type="int" />
+          <Property Name="Goods_Starsint" Type="int" />
+          <Property Name="Goods_Imgstr" Type="nvarchar" MaxLength="120" />
+          <Property Name="Goods_Createdate" Type="date" />
+          <Property Name="IDint" Type="int" Nullable="false" />
+          <Property Name="Type_Namestr" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type_IDstr" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“MyBuy.dbo.VI_USER_INFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="VI_USER_INFO">
+          <Key>
+            <PropertyRef Name="User_IDint" />
+            <PropertyRef Name="User_Emailstr" />
+          </Key>
+          <Property Name="User_IDint" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="User_Emailstr" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="User_Biostr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Nicknamestr" Type="nvarchar" MaxLength="24" />
+          <Property Name="User_Genderchar" Type="char" MaxLength="2" />
+          <Property Name="User_Birthdaydate" Type="datetime" />
+          <Property Name="User_Phonestr" Type="nvarchar" MaxLength="11" />
+          <Property Name="User_Iconstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Adress" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Hobaystr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_CreateTimedate" Type="datetime" />
+          <Property Name="User_LastLoginTinedate" Type="datetime" />
+          <Property Name="User_Namestr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Realnamestr" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_tbComments_tbUserInfo_UserID">
+          <End Role="tbUser_Info" Type="MyBuyModel1.Store.tbUser_Info" Multiplicity="0..1" />
+          <End Role="tbComments" Type="MyBuyModel1.Store.tbComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser_Info">
+              <PropertyRef Name="User_IDint" />
+            </Principal>
+            <Dependent Role="tbComments">
+              <PropertyRef Name="Coment_UserIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbGoods_tbType_TypeID">
+          <End Role="tbType" Type="MyBuyModel1.Store.tbType" Multiplicity="0..1" />
+          <End Role="tbGoods" Type="MyBuyModel1.Store.tbGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbType">
+              <PropertyRef Name="IDint" />
+            </Principal>
+            <Dependent Role="tbGoods">
+              <PropertyRef Name="Goods_TypeIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbGoods_tbUserInfo_UserID">
+          <End Role="tbUser_Info" Type="MyBuyModel1.Store.tbUser_Info" Multiplicity="0..1" />
+          <End Role="tbGoods" Type="MyBuyModel1.Store.tbGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser_Info">
+              <PropertyRef Name="User_IDint" />
+            </Principal>
+            <Dependent Role="tbGoods">
+              <PropertyRef Name="Goods_UserIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbStars_tbGoods_GoodsID">
+          <End Role="tbGoods" Type="MyBuyModel1.Store.tbGoods" Multiplicity="0..1" />
+          <End Role="tbStars" Type="MyBuyModel1.Store.tbStars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbGoods">
+              <PropertyRef Name="Goods_Idstr" />
+            </Principal>
+            <Dependent Role="tbStars">
+              <PropertyRef Name="Stars_GoodsIDstr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbStars_tbUserInfo_UserID">
+          <End Role="tbUser_Info" Type="MyBuyModel1.Store.tbUser_Info" Multiplicity="0..1" />
+          <End Role="tbStars" Type="MyBuyModel1.Store.tbStars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser_Info">
+              <PropertyRef Name="User_IDint" />
+            </Principal>
+            <Dependent Role="tbStars">
+              <PropertyRef Name="Stars_UserIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbType_tbType">
+          <End Role="tbType" Type="MyBuyModel1.Store.tbType" Multiplicity="1" />
+          <End Role="tbType1" Type="MyBuyModel1.Store.tbType" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbType">
+              <PropertyRef Name="IDint" />
+            </Principal>
+            <Dependent Role="tbType1">
+              <PropertyRef Name="IDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyBuyModel1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MyBuyServerEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="MyBuyModel1.sysdiagrams" />
+          <EntitySet Name="tbComments" EntityType="MyBuyModel1.tbComments" />
+          <EntitySet Name="tbGoods" EntityType="MyBuyModel1.tbGoods" />
+          <EntitySet Name="tbStars" EntityType="MyBuyModel1.tbStars" />
+          <EntitySet Name="tbType" EntityType="MyBuyModel1.tbType" />
+          <EntitySet Name="tbUser_Info" EntityType="MyBuyModel1.tbUser_Info" />
+          <EntitySet Name="VI_COMMENTS" EntityType="MyBuyModel1.VI_COMMENTS" />
+          <EntitySet Name="VI_GOODSES" EntityType="MyBuyModel1.VI_GOODSES" />
+          <EntitySet Name="VI_USER_INFO" EntityType="MyBuyModel1.VI_USER_INFO" />
+          <AssociationSet Name="FK_tbComments_tbUserInfo_UserID" Association="MyBuyModel1.FK_tbComments_tbUserInfo_UserID">
+            <End Role="tbUser_Info" EntitySet="tbUser_Info" />
+            <End Role="tbComments" EntitySet="tbComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbGoods_tbType_TypeID" Association="MyBuyModel1.FK_tbGoods_tbType_TypeID">
+            <End Role="tbType" EntitySet="tbType" />
+            <End Role="tbGoods" EntitySet="tbGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbGoods_tbUserInfo_UserID" Association="MyBuyModel1.FK_tbGoods_tbUserInfo_UserID">
+            <End Role="tbUser_Info" EntitySet="tbUser_Info" />
+            <End Role="tbGoods" EntitySet="tbGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbStars_tbGoods_GoodsID" Association="MyBuyModel1.FK_tbStars_tbGoods_GoodsID">
+            <End Role="tbGoods" EntitySet="tbGoods" />
+            <End Role="tbStars" EntitySet="tbStars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbStars_tbUserInfo_UserID" Association="MyBuyModel1.FK_tbStars_tbUserInfo_UserID">
+            <End Role="tbUser_Info" EntitySet="tbUser_Info" />
+            <End Role="tbStars" EntitySet="tbStars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbType_tbType" Association="MyBuyModel1.FK_tbType_tbType">
+            <End Role="tbType" EntitySet="tbType" />
+            <End Role="tbType1" EntitySet="tbType" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbComments">
+          <Key>
+            <PropertyRef Name="Coment_IDint" />
+          </Key>
+          <Property Name="Coment_IDint" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Coment_Contentstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Coment_GoodsIDstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Cooent_Parentint" Type="Int32" />
+          <Property Name="Coment_UserIDint" Type="Int32" />
+          <Property Name="Comment_Datedate" Type="DateTime" Precision="0" />
+          <Property Name="Coment_Delflagstr" Type="Int32" />
+          <NavigationProperty Name="tbUser_Info" Relationship="MyBuyModel1.FK_tbComments_tbUserInfo_UserID" FromRole="tbComments" ToRole="tbUser_Info" />
+        </EntityType>
+        <EntityType Name="tbGoods">
+          <Key>
+            <PropertyRef Name="Goods_Idstr" />
+          </Key>
+          <Property Name="Goods_Idstr" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Namestr" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Descriptionstr" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Priceint" Type="Double" />
+          <Property Name="Goos_Quality" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_OldPriceint" Type="Int32" />
+          <Property Name="Goods_Starsint" Type="Int32" />
+          <Property Name="Goods_Imgstr" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Delflagint" Type="Int32" />
+          <Property Name="Goods_Createdate" Type="DateTime" Precision="0" />
+          <Property Name="Goods_UserIDint" Type="Int32" />
+          <Property Name="Goods_TypeIDint" Type="Int32" />
+          <NavigationProperty Name="tbType" Relationship="MyBuyModel1.FK_tbGoods_tbType_TypeID" FromRole="tbGoods" ToRole="tbType" />
+          <NavigationProperty Name="tbUser_Info" Relationship="MyBuyModel1.FK_tbGoods_tbUserInfo_UserID" FromRole="tbGoods" ToRole="tbUser_Info" />
+          <NavigationProperty Name="tbStars" Relationship="MyBuyModel1.FK_tbStars_tbGoods_GoodsID" FromRole="tbGoods" ToRole="tbStars" />
+        </EntityType>
+        <EntityType Name="tbStars">
+          <Key>
+            <PropertyRef Name="IDint" />
+          </Key>
+          <Property Name="IDint" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Stars_UserIDint" Type="Int32" />
+          <Property Name="Stars_GoodsIDstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Stars_Datedate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tbGoods" Relationship="MyBuyModel1.FK_tbStars_tbGoods_GoodsID" FromRole="tbStars" ToRole="tbGoods" />
+          <NavigationProperty Name="tbUser_Info" Relationship="MyBuyModel1.FK_tbStars_tbUserInfo_UserID" FromRole="tbStars" ToRole="tbUser_Info" />
+        </EntityType>
+        <EntityType Name="tbType">
+          <Key>
+            <PropertyRef Name="IDint" />
+          </Key>
+          <Property Name="IDint" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Type_Namestr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Type_Delfalgint" Type="Int32" />
+          <Property Name="Type_IDstr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbGoods" Relationship="MyBuyModel1.FK_tbGoods_tbType_TypeID" FromRole="tbType" ToRole="tbGoods" />
+          <NavigationProperty Name="tbType1" Relationship="MyBuyModel1.FK_tbType_tbType" FromRole="tbType" ToRole="tbType1" />
+          <NavigationProperty Name="tbType2" Relationship="MyBuyModel1.FK_tbType_tbType" FromRole="tbType1" ToRole="tbType" />
+        </EntityType>
+        <EntityType Name="tbUser_Info">
+          <Key>
+            <PropertyRef Name="User_IDint" />
+          </Key>
+          <Property Name="User_IDint" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Emailstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Pwdstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Biostr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Nicknamestr" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="User_Genderchar" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="User_Birthdaydate" Type="DateTime" Precision="3" />
+          <Property Name="User_Phonestr" Type="String" MaxLength="11" Unicode="true" FixedLength="false" />
+          <Property Name="User_Iconstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Adress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Hobaystr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Ipv4str" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_CreateTimedate" Type="DateTime" Precision="3" />
+          <Property Name="User_LastLoginPhonestr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_LastLoginTinedate" Type="DateTime" Precision="3" />
+          <Property Name="User_Namestr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Realnamestr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="User_Sateint" Type="Int32" />
+          <Property Name="User_Codestr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="User_Expdate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tbComments" Relationship="MyBuyModel1.FK_tbComments_tbUserInfo_UserID" FromRole="tbUser_Info" ToRole="tbComments" />
+          <NavigationProperty Name="tbGoods" Relationship="MyBuyModel1.FK_tbGoods_tbUserInfo_UserID" FromRole="tbUser_Info" ToRole="tbGoods" />
+          <NavigationProperty Name="tbStars" Relationship="MyBuyModel1.FK_tbStars_tbUserInfo_UserID" FromRole="tbUser_Info" ToRole="tbStars" />
+        </EntityType>
+        <EntityType Name="VI_COMMENTS">
+          <Key>
+            <PropertyRef Name="Coment_IDint" />
+            <PropertyRef Name="Goods_Idstr" />
+            <PropertyRef Name="User_IDint" />
+          </Key>
+          <Property Name="Coment_IDint" Type="Int32" Nullable="false" />
+          <Property Name="Coment_Contentstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Cooent_Parentint" Type="Int32" />
+          <Property Name="Comment_Datedate" Type="DateTime" Precision="0" />
+          <Property Name="Goods_Idstr" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_IDint" Type="Int32" Nullable="false" />
+          <Property Name="User_Namestr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VI_GOODSES">
+          <Key>
+            <PropertyRef Name="User_IDint" />
+            <PropertyRef Name="Goods_Idstr" />
+            <PropertyRef Name="IDint" />
+          </Key>
+          <Property Name="User_IDint" Type="Int32" Nullable="false" />
+          <Property Name="User_Namestr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Idstr" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Namestr" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Descriptionstr" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Priceint" Type="Double" />
+          <Property Name="Goos_Quality" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_OldPriceint" Type="Int32" />
+          <Property Name="Goods_Starsint" Type="Int32" />
+          <Property Name="Goods_Imgstr" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="Goods_Createdate" Type="DateTime" Precision="0" />
+          <Property Name="IDint" Type="Int32" Nullable="false" />
+          <Property Name="Type_Namestr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Type_IDstr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VI_USER_INFO">
+          <Key>
+            <PropertyRef Name="User_IDint" />
+            <PropertyRef Name="User_Emailstr" />
+          </Key>
+          <Property Name="User_IDint" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Emailstr" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Biostr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Nicknamestr" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="User_Genderchar" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="User_Birthdaydate" Type="DateTime" Precision="3" />
+          <Property Name="User_Phonestr" Type="String" MaxLength="11" Unicode="true" FixedLength="false" />
+          <Property Name="User_Iconstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Adress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Hobaystr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_CreateTimedate" Type="DateTime" Precision="3" />
+          <Property Name="User_LastLoginTinedate" Type="DateTime" Precision="3" />
+          <Property Name="User_Namestr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Realnamestr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_tbComments_tbUserInfo_UserID">
+          <End Role="tbUser_Info" Type="MyBuyModel1.tbUser_Info" Multiplicity="0..1" />
+          <End Role="tbComments" Type="MyBuyModel1.tbComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser_Info">
+              <PropertyRef Name="User_IDint" />
+            </Principal>
+            <Dependent Role="tbComments">
+              <PropertyRef Name="Coment_UserIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbGoods_tbType_TypeID">
+          <End Role="tbType" Type="MyBuyModel1.tbType" Multiplicity="0..1" />
+          <End Role="tbGoods" Type="MyBuyModel1.tbGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbType">
+              <PropertyRef Name="IDint" />
+            </Principal>
+            <Dependent Role="tbGoods">
+              <PropertyRef Name="Goods_TypeIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbGoods_tbUserInfo_UserID">
+          <End Role="tbUser_Info" Type="MyBuyModel1.tbUser_Info" Multiplicity="0..1" />
+          <End Role="tbGoods" Type="MyBuyModel1.tbGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser_Info">
+              <PropertyRef Name="User_IDint" />
+            </Principal>
+            <Dependent Role="tbGoods">
+              <PropertyRef Name="Goods_UserIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbStars_tbGoods_GoodsID">
+          <End Role="tbGoods" Type="MyBuyModel1.tbGoods" Multiplicity="0..1" />
+          <End Role="tbStars" Type="MyBuyModel1.tbStars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbGoods">
+              <PropertyRef Name="Goods_Idstr" />
+            </Principal>
+            <Dependent Role="tbStars">
+              <PropertyRef Name="Stars_GoodsIDstr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbStars_tbUserInfo_UserID">
+          <End Role="tbUser_Info" Type="MyBuyModel1.tbUser_Info" Multiplicity="0..1" />
+          <End Role="tbStars" Type="MyBuyModel1.tbStars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbUser_Info">
+              <PropertyRef Name="User_IDint" />
+            </Principal>
+            <Dependent Role="tbStars">
+              <PropertyRef Name="Stars_UserIDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbType_tbType">
+          <End Role="tbType" Type="MyBuyModel1.tbType" Multiplicity="1" />
+          <End Role="tbType1" Type="MyBuyModel1.tbType" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbType">
+              <PropertyRef Name="IDint" />
+            </Principal>
+            <Dependent Role="tbType1">
+              <PropertyRef Name="IDint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyBuyModel1StoreContainer" CdmEntityContainer="MyBuyServerEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MyBuyModel1.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbComments">
+            <EntityTypeMapping TypeName="MyBuyModel1.tbComments">
+              <MappingFragment StoreEntitySet="tbComments">
+                <ScalarProperty Name="Coment_IDint" ColumnName="Coment_IDint" />
+                <ScalarProperty Name="Coment_Contentstr" ColumnName="Coment_Contentstr" />
+                <ScalarProperty Name="Coment_GoodsIDstr" ColumnName="Coment_GoodsIDstr" />
+                <ScalarProperty Name="Cooent_Parentint" ColumnName="Cooent_Parentint" />
+                <ScalarProperty Name="Coment_UserIDint" ColumnName="Coment_UserIDint" />
+                <ScalarProperty Name="Comment_Datedate" ColumnName="Comment_Datedate" />
+                <ScalarProperty Name="Coment_Delflagstr" ColumnName="Coment_Delflagstr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbGoods">
+            <EntityTypeMapping TypeName="MyBuyModel1.tbGoods">
+              <MappingFragment StoreEntitySet="tbGoods">
+                <ScalarProperty Name="Goods_Idstr" ColumnName="Goods_Idstr" />
+                <ScalarProperty Name="Goods_Namestr" ColumnName="Goods_Namestr" />
+                <ScalarProperty Name="Goods_Descriptionstr" ColumnName="Goods_Descriptionstr" />
+                <ScalarProperty Name="Goods_Priceint" ColumnName="Goods_Priceint" />
+                <ScalarProperty Name="Goos_Quality" ColumnName="Goos_Quality" />
+                <ScalarProperty Name="Goods_OldPriceint" ColumnName="Goods_OldPriceint" />
+                <ScalarProperty Name="Goods_Starsint" ColumnName="Goods_Starsint" />
+                <ScalarProperty Name="Goods_Imgstr" ColumnName="Goods_Imgstr" />
+                <ScalarProperty Name="Goods_Delflagint" ColumnName="Goods_Delflagint" />
+                <ScalarProperty Name="Goods_Createdate" ColumnName="Goods_Createdate" />
+                <ScalarProperty Name="Goods_UserIDint" ColumnName="Goods_UserIDint" />
+                <ScalarProperty Name="Goods_TypeIDint" ColumnName="Goods_TypeIDint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbStars">
+            <EntityTypeMapping TypeName="MyBuyModel1.tbStars">
+              <MappingFragment StoreEntitySet="tbStars">
+                <ScalarProperty Name="IDint" ColumnName="IDint" />
+                <ScalarProperty Name="Stars_UserIDint" ColumnName="Stars_UserIDint" />
+                <ScalarProperty Name="Stars_GoodsIDstr" ColumnName="Stars_GoodsIDstr" />
+                <ScalarProperty Name="Stars_Datedate" ColumnName="Stars_Datedate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbType">
+            <EntityTypeMapping TypeName="MyBuyModel1.tbType">
+              <MappingFragment StoreEntitySet="tbType">
+                <ScalarProperty Name="IDint" ColumnName="IDint" />
+                <ScalarProperty Name="Type_Namestr" ColumnName="Type_Namestr" />
+                <ScalarProperty Name="Type_Delfalgint" ColumnName="Type_Delfalgint" />
+                <ScalarProperty Name="Type_IDstr" ColumnName="Type_IDstr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUser_Info">
+            <EntityTypeMapping TypeName="MyBuyModel1.tbUser_Info">
+              <MappingFragment StoreEntitySet="tbUser_Info">
+                <ScalarProperty Name="User_IDint" ColumnName="User_IDint" />
+                <ScalarProperty Name="User_Emailstr" ColumnName="User_Emailstr" />
+                <ScalarProperty Name="User_Pwdstr" ColumnName="User_Pwdstr" />
+                <ScalarProperty Name="User_Biostr" ColumnName="User_Biostr" />
+                <ScalarProperty Name="User_Nicknamestr" ColumnName="User_Nicknamestr" />
+                <ScalarProperty Name="User_Genderchar" ColumnName="User_Genderchar" />
+                <ScalarProperty Name="User_Birthdaydate" ColumnName="User_Birthdaydate" />
+                <ScalarProperty Name="User_Phonestr" ColumnName="User_Phonestr" />
+                <ScalarProperty Name="User_Iconstr" ColumnName="User_Iconstr" />
+                <ScalarProperty Name="User_Adress" ColumnName="User_Adress" />
+                <ScalarProperty Name="User_Hobaystr" ColumnName="User_Hobaystr" />
+                <ScalarProperty Name="User_Ipv4str" ColumnName="User_Ipv4str" />
+                <ScalarProperty Name="User_CreateTimedate" ColumnName="User_CreateTimedate" />
+                <ScalarProperty Name="User_LastLoginPhonestr" ColumnName="User_LastLoginPhonestr" />
+                <ScalarProperty Name="User_LastLoginTinedate" ColumnName="User_LastLoginTinedate" />
+                <ScalarProperty Name="User_Namestr" ColumnName="User_Namestr" />
+                <ScalarProperty Name="User_Realnamestr" ColumnName="User_Realnamestr" />
+                <ScalarProperty Name="User_Sateint" ColumnName="User_Sateint" />
+                <ScalarProperty Name="User_Codestr" ColumnName="User_Codestr" />
+                <ScalarProperty Name="User_Expdate" ColumnName="User_Expdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VI_COMMENTS">
+            <EntityTypeMapping TypeName="MyBuyModel1.VI_COMMENTS">
+              <MappingFragment StoreEntitySet="VI_COMMENTS">
+                <ScalarProperty Name="Coment_IDint" ColumnName="Coment_IDint" />
+                <ScalarProperty Name="Coment_Contentstr" ColumnName="Coment_Contentstr" />
+                <ScalarProperty Name="Cooent_Parentint" ColumnName="Cooent_Parentint" />
+                <ScalarProperty Name="Comment_Datedate" ColumnName="Comment_Datedate" />
+                <ScalarProperty Name="Goods_Idstr" ColumnName="Goods_Idstr" />
+                <ScalarProperty Name="User_IDint" ColumnName="User_IDint" />
+                <ScalarProperty Name="User_Namestr" ColumnName="User_Namestr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VI_GOODSES">
+            <EntityTypeMapping TypeName="MyBuyModel1.VI_GOODSES">
+              <MappingFragment StoreEntitySet="VI_GOODSES">
+                <ScalarProperty Name="User_IDint" ColumnName="User_IDint" />
+                <ScalarProperty Name="User_Namestr" ColumnName="User_Namestr" />
+                <ScalarProperty Name="Goods_Idstr" ColumnName="Goods_Idstr" />
+                <ScalarProperty Name="Goods_Namestr" ColumnName="Goods_Namestr" />
+                <ScalarProperty Name="Goods_Descriptionstr" ColumnName="Goods_Descriptionstr" />
+                <ScalarProperty Name="Goods_Priceint" ColumnName="Goods_Priceint" />
+                <ScalarProperty Name="Goos_Quality" ColumnName="Goos_Quality" />
+                <ScalarProperty Name="Goods_OldPriceint" ColumnName="Goods_OldPriceint" />
+                <ScalarProperty Name="Goods_Starsint" ColumnName="Goods_Starsint" />
+                <ScalarProperty Name="Goods_Imgstr" ColumnName="Goods_Imgstr" />
+                <ScalarProperty Name="Goods_Createdate" ColumnName="Goods_Createdate" />
+                <ScalarProperty Name="IDint" ColumnName="IDint" />
+                <ScalarProperty Name="Type_Namestr" ColumnName="Type_Namestr" />
+                <ScalarProperty Name="Type_IDstr" ColumnName="Type_IDstr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VI_USER_INFO">
+            <EntityTypeMapping TypeName="MyBuyModel1.VI_USER_INFO">
+              <MappingFragment StoreEntitySet="VI_USER_INFO">
+                <ScalarProperty Name="User_IDint" ColumnName="User_IDint" />
+                <ScalarProperty Name="User_Emailstr" ColumnName="User_Emailstr" />
+                <ScalarProperty Name="User_Biostr" ColumnName="User_Biostr" />
+                <ScalarProperty Name="User_Nicknamestr" ColumnName="User_Nicknamestr" />
+                <ScalarProperty Name="User_Genderchar" ColumnName="User_Genderchar" />
+                <ScalarProperty Name="User_Birthdaydate" ColumnName="User_Birthdaydate" />
+                <ScalarProperty Name="User_Phonestr" ColumnName="User_Phonestr" />
+                <ScalarProperty Name="User_Iconstr" ColumnName="User_Iconstr" />
+                <ScalarProperty Name="User_Adress" ColumnName="User_Adress" />
+                <ScalarProperty Name="User_Hobaystr" ColumnName="User_Hobaystr" />
+                <ScalarProperty Name="User_CreateTimedate" ColumnName="User_CreateTimedate" />
+                <ScalarProperty Name="User_LastLoginTinedate" ColumnName="User_LastLoginTinedate" />
+                <ScalarProperty Name="User_Namestr" ColumnName="User_Namestr" />
+                <ScalarProperty Name="User_Realnamestr" ColumnName="User_Realnamestr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -10,7 +10,14 @@ namespace MyBuy.WebApi.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
-            
+            config.MapHttpAttributeRoutes();
+
+            //1.默认路由
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
         }
     }
 }

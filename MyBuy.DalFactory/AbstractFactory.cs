@@ -29,6 +29,37 @@ namespace MyBuy.DalFactory
             return CreateInstance(fullClassName) as IUserInfoDal;
         }
 
+
+        /// <summary>
+        /// 实现GoodsDal的创建
+        /// </summary>
+        /// <returns>UserInfoDal</returns>
+        public static IGoodsDal CreateGoodsDal()
+        {
+            string fullClassName = NameSpace + ".GoodsDal";
+            return CreateInstance(fullClassName) as IGoodsDal;
+        }
+
+        /// <summary>
+        /// 实现ViewGoodsDal的创建（商品视图查询）
+        /// </summary>
+        /// <returns>ViewGoodsDal</returns>
+        public static IViewGoodsDal CreateViewGoodsDal()
+        {
+            string fullClassName = NameSpace + ".ViewCoodsDal";
+            return CreateInstance(fullClassName) as IViewGoodsDal;
+        }
+
+
+        /// <summary>
+        /// 实现ViewUserInfoDal的创建（商品视图查询）
+        /// </summary>
+        /// <returns>ViewUserInfoDal</returns>
+        public static IViewUserInfoDal CreateViewUserInfoDal()
+        {
+            string fullClassName = NameSpace + ".ViewUserInfoDal";
+            return CreateInstance(fullClassName) as IViewUserInfoDal;
+        }
         /// <summary>
         /// 通过反射找到指定的命名空间
         /// </summary>

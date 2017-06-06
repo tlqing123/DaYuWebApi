@@ -52,7 +52,10 @@
   <ItemGroup>
     <Compile Include="IBaseDal.cs" />
     <Compile Include="IDbSession.cs" />
+    <Compile Include="IGoodsDal.cs" />
     <Compile Include="IUserInfoDal.cs" />
+    <Compile Include="IViewGoodsDal.cs" />
+    <Compile Include="IViewUserInfoDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

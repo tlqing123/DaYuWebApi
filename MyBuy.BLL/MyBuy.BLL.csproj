@@ -40,8 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseServices.cs" />
+    <Compile Include="GoodsServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfoServices.cs" />
+    <Compile Include="ViewGoodsServices.cs" />
+    <Compile Include="ViewUserInfoServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyBuy.DalFactory\MyBuy.DalFactory.csproj">

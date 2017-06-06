@@ -16,13 +16,34 @@ namespace MyBuy.Model
     {
         public tbUser_Info()
         {
-            this.tbCommodity = new HashSet<tbCommodity>();
+            this.tbComments = new HashSet<tbComments>();
+            this.tbGoods = new HashSet<tbGoods>();
+            this.tbStars = new HashSet<tbStars>();
         }
     
-        public byte User_Idint { get; set; }
+        public int User_IDint { get; set; }
         public string User_Emailstr { get; set; }
         public string User_Pwdstr { get; set; }
+        public string User_Biostr { get; set; }
+        public string User_Nicknamestr { get; set; }
+        public string User_Genderchar { get; set; }
+        public Nullable<System.DateTime> User_Birthdaydate { get; set; }
+        public string User_Phonestr { get; set; }
+        public string User_Iconstr { get; set; }
+        public string User_Adress { get; set; }
+        public string User_Hobaystr { get; set; }
+        public string User_Ipv4str { get; set; }
+        public Nullable<System.DateTime> User_CreateTimedate { get; set; }
+        public string User_LastLoginPhonestr { get; set; }
+        public Nullable<System.DateTime> User_LastLoginTinedate { get; set; }
+        public string User_Namestr { get; set; }
+        public string User_Realnamestr { get; set; }
+        public Nullable<int> User_Sateint { get; set; }
+        public string User_Codestr { get; set; }
+        public Nullable<System.DateTime> User_Expdate { get; set; }
     
-        public virtual ICollection<tbCommodity> tbCommodity { get; set; }
+        public virtual ICollection<tbComments> tbComments { get; set; }
+        public virtual ICollection<tbGoods> tbGoods { get; set; }
+        public virtual ICollection<tbStars> tbStars { get; set; }
     }
 }

@@ -30,9 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="aliyun-net-sdk-core">
+      <HintPath>..\lib\aliyun-net-sdk-core.dll</HintPath>
+    </Reference>
+    <Reference Include="aliyun-net-sdk-dm">
+      <HintPath>..\lib\aliyun-net-sdk-dm.dll</HintPath>
+    </Reference>
     <Reference Include="jose-jwt, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\jose-jwt.2.3.0\lib\net461\jose-jwt.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -48,8 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ALiYnEmail.cs" />
+    <Compile Include="CreateRenderCode.cs" />
+    <Compile Include="Md5.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TokenHelper.cs" />
+    <Compile Include="OAuth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

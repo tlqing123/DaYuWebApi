@@ -14,7 +14,7 @@ namespace MyBuy.DalFactory
      * author:xioashan
      * date:2017/5/7
      */
-    public class DbSession :IDbSession
+    public class DbSession : IDbSession
     {
         /// <summary>
         /// 创建EF实体
@@ -43,6 +43,55 @@ namespace MyBuy.DalFactory
             }
             set { _userInfoDal = value; }
         }
+
+        /// <summary>
+        /// IGoodsDal属性
+        /// </summary>
+        private IGoodsDal _goodsDal;
+        public IGoodsDal GoodsDal
+        {
+            get
+            {
+                if (_goodsDal == null)
+                {
+                    _goodsDal = AbstractFactory.CreateGoodsDal();
+                }
+                return _goodsDal;
+            }
+            set { _goodsDal = value; }
+        }
+
+
+        /// <summary>
+        /// IViewGoodsDal属性
+        /// </summary>
+        private IViewGoodsDal _viewGoodsDal;
+        public IViewGoodsDal ViewGoodsDal
+        {
+            get
+            {
+                if (_viewGoodsDal == null)
+                {
+                    _viewGoodsDal = AbstractFactory.CreateViewGoodsDal();
+                }
+                return _viewGoodsDal;
+            }
+            set { _viewGoodsDal = value; }
+        }
+
+        private IViewUserInfoDal _viewUserInfoDal;
+
+        public IViewUserInfoDal ViewUserInfoDal
+        {
+            get {
+                if (_viewUserInfoDal==null)
+                {
+                    _viewUserInfoDal = AbstractFactory.CreateViewUserInfoDal();
+                }
+                return _viewUserInfoDal; }
+            set { _viewUserInfoDal = value; }
+        }
+
 
         /// <summary>
         /// 工作单元模式

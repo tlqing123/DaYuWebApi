@@ -1,6 +1,7 @@
 ﻿using MyBuy.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,12 +15,8 @@ namespace MyBuy.DAL
     */
     public class BaseDal<T> where T : class,new()
     {
-        /*
-         * 数据操作基类
-         * author:xioashan
-         * date:2017-5-7
-         */
-        MyBuyEntities db = new MyBuyEntities();
+
+        DbContext db = DbContextFactory.CreateDbContext();
         #region 加载所有实体
         /// <summary>
         /// 加载所有实体
@@ -94,7 +91,7 @@ namespace MyBuy.DAL
         /// <returns>修改后的实体</returns>
         public T AddEntity(T entity)
         {
-            db.Set<T>().Add(entity);
+            db.Entry<T>(entity).State = System.Data.Entity.EntityState.Added;
             return entity;
         }
         #endregion

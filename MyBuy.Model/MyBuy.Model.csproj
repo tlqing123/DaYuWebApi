@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -65,22 +66,56 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocalData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MyBuyServer.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyBuyServer.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBuyServer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBuyServer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyBuyServer.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tbCommodity.cs">
-      <DependentUpon>LocalData.tt</DependentUpon>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbComments.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbGoods.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbStars.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbType.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
     </Compile>
     <Compile Include="tbUser_Info.cs">
-      <DependentUpon>LocalData.tt</DependentUpon>
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VI_COMMENTS.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VI_GOODSES.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VI_USER_INFO.cs">
+      <DependentUpon>MyBuyServer.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="LocalData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LocalData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="LocalData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LocalData.edmx</DependentUpon>
@@ -93,6 +128,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LocalData.edmx</DependentUpon>
       <LastGenOutput>LocalData.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="MyBuyServer.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyBuyServer.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MyBuyServer.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyBuyServer.edmx</DependentUpon>
+      <LastGenOutput>MyBuyServer.Context.cs</LastGenOutput>
+    </None>
+    <None Include="MyBuyServer.edmx.diagram">
+      <DependentUpon>MyBuyServer.edmx</DependentUpon>
+    </None>
+    <None Include="MyBuyServer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyBuyServer.edmx</DependentUpon>
+      <LastGenOutput>MyBuyServer.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

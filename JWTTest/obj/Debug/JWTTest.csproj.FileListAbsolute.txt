@@ -7,3 +7,17 @@ E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\bin\Debug\Newtonsoft.Json.xml
 E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\obj\Debug\JWTTest.exe
 E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\obj\Debug\JWTTest.pdb
 E:\Project\MyBuy\MyBuyApi\MyBuy\JWTTest\obj\Debug\JWTTest.csprojResolveAssemblyReference.cache
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\JWTTest.exe.config
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\JWTTest.exe
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\JWTTest.pdb
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\jose-jwt.dll
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\Newtonsoft.Json.dll
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\Newtonsoft.Json.xml
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\obj\Debug\JWTTest.csprojResolveAssemblyReference.cache
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\obj\Debug\JWTTest.exe
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\obj\Debug\JWTTest.pdb
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\MyBuy.Common.dll
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\MyBuy.Common.pdb
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\aliyun-net-sdk-core.dll
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\aliyun-net-sdk-dm.dll
+E:\Project\DaYuWeb\DaYuWebApi\JWTTest\bin\Debug\JWT.dll

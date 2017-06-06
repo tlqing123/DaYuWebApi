@@ -16,6 +16,9 @@ namespace MyBuy.IDAL
     {
         DbContext Db { get; }
         IUserInfoDal UserInfoDal { get; set; }
+        IGoodsDal GoodsDal { get; set; }
+        IViewGoodsDal ViewGoodsDal { get; set; }
+        IViewUserInfoDal ViewUserInfoDal { get; set; }
         /// <summary>
         /// 单元工厂模式
         /// </summary>

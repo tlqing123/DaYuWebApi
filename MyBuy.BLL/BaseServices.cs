@@ -106,6 +106,7 @@ namespace MyBuy.BLL
         public T AddEntity(T entity)
         {
             CurrentDal.AddEntity(entity);
+            CurrentDbSession.SaveChanges();
             return entity;
         }
         #endregion

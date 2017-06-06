@@ -22,17 +22,10 @@ namespace MyBuy.WebApi
             GlobalConfiguration.Configuration.EnableCors();
             //Log4Net配置
             LogHelper.SetConfig();
-            //配置API路由
-
-            /*GlobalConfiguration.Configuration.Routes.MapHttpRoute("default api",
-                "api/{Controller}/{item}",
-                new
-                {
-                    item = RouteParameter.Optional//可选项
-                });*/
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-           // GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter
+                        .SerializerSettings
+                        .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
 
         protected void Session_Start(object sender, EventArgs e)
