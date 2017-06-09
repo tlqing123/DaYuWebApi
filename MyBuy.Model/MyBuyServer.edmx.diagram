@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="37d9e3c325f2433db572eded2b4a723c" Name="关系图1" ZoomLevel="90">
+      <Diagram DiagramId="37d9e3c325f2433db572eded2b4a723c" Name="关系图1" ZoomLevel="88">
         <EntityTypeShape EntityType="MyBuyModel1.sysdiagrams" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="MyBuyModel1.tbComments" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MyBuyModel1.tbGoods" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />

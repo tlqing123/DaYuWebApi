@@ -20,14 +20,15 @@ namespace JWTTest
     {
         static void Main(string[] args)
         {
-            string token = OAuth.CreateAccessToken("dayuweb");
-
-
+            /*string token = OAuth.CreateAccessToken("dayuweb");        
             JObject obj = OAuth.GetData(token);
             Console.WriteLine(obj["name"].ToString());
             Console.WriteLine(Convert.ToDateTime(obj["exp"]));
             Console.WriteLine(Md5.GetMd5String("123456"));
-            Console.WriteLine(token);
+            Console.WriteLine(token);*/
+
+
+            Console.WriteLine(OrderNumber.CreateOrderId("G")); 
             Console.ReadKey();
 
         }

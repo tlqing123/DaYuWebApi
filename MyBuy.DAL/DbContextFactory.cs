@@ -25,7 +25,7 @@ namespace MyBuy.DAL
             DbContext dbContext = (DbContext)CallContext.GetData("dbContext");
             if (dbContext == null)
             {
-                dbContext = new MyBuyServerEntities();
+                dbContext = new MyBuyEntities();
                 CallContext.SetData("dbContext", dbContext);
             }
             return dbContext;

@@ -14,33 +14,31 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-12" style="margin-top: 100px">
+            <div class="col-sm-6" style="margin-top: 100px">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" class="btn btn-primary" id="btn">POST测试</button>
+                        <button type="button" class="btn btn-info" id="btn">POST测试</button>
                     </div>
                 </div>
-
+                <br />
+                <br />
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" class="btn btn-primary" id="btnget">GET测试</button>
+                        <button type="button" class="btn btn-danger" id="btnget">GET测试</button>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-sm-12" id="result">
             </div>
         </div>
     </div>
     <script>
-        var token = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGF5dXdlYiIsImV4cCI6IlwvRGF0ZSgxNDk2OTE1NDE2NDQzKVwvIn0.zJJuTPdl4Sz_Cl_9UwapAmep5290zenpP87RN6gWRzJGdV0XeX3i-eGGITMYL3PCUklptiH8cbFC_LPyJlvGHA';
+        var token = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGF5dXdlYiIsImV4cCI6IlwvRGF0ZSgxNDk3MDg5OTU4NTIzKVwvIn0.S_1WHHb0sVwQoH275Q2xAKMuzXcBMvZe4uTa0cgpc0Kns47FsfSi3yiQws6FaOz_jmsPdVs89H8Hu3u5PIyniA';
         var btn = $('#btn');
         btn.click(function () {
             $.ajax({
                 type: 'post',
-                url: '/api/users',
+                url: '/api/users/OAuth',
                 contentType: 'application/json',
-                data: JSON.stringify({name:'bixiaoshan', email: 'viewxiaoshan@sina.com', pwd: '123456' }),//
+                data: JSON.stringify({ email: 'bxshichina@163.com', pwd: '123456' }),
                 success: function (data) {
                 },
                 error: function () {
@@ -49,12 +47,12 @@
             })
         })
         //name: 'bxshichina@163.com',pwd:'123456' 
-      
+        //name: 'bixiaoshan', email: 'viewxiaoshan@sina.com', pwd: '123456' 
         $('#btnget').click(function () {
             $.ajax({
                 type: 'get',
-                url: '/api/users/name?userName=dayuweb',
-              // data: { email: 'bxshichina@163.com' },
+                url: '/api/goods',
+                data: { page: 1, per_page: 10 },
                 success: function (data) {
                 },
                 error: function () {
@@ -62,6 +60,18 @@
                 }
             })
         })
+
+        /**
+        根据ID获取
+         type: 'get',
+                url: '/api/goods/book',
+              data: { page:1,per_page:10 },
+                success: function (data) {
+                },
+                error: function () {
+                    console.log('error')
+                }
+        **/
     </script>
 </body>
 

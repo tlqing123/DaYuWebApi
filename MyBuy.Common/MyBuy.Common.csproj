@@ -60,6 +60,7 @@
     <Compile Include="ALiYnEmail.cs" />
     <Compile Include="CreateRenderCode.cs" />
     <Compile Include="Md5.cs" />
+    <Compile Include="OrderNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OAuth.cs" />
   </ItemGroup>

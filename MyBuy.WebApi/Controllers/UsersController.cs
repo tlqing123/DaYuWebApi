@@ -3,6 +3,7 @@ using MyBuy.BLL;
 using MyBuy.Common;
 using MyBuy.IBLL;
 using MyBuy.Model;
+using MyBuy.WebApi.Models;
 using Newtonsoft.Json.Linq;
 using Security.Cryptography;
 using System;
@@ -28,19 +29,20 @@ namespace MyBuy.WebApi.Controllers
         /// </summary>
         private static IViewUserInfoServices viewUserInfoServices = new ViewUserInfoServices();
 
-        #region 登录生成token
+        #region 登录生成token OK
         /// <summary>
         /// 登录生成token
         /// </summary>
         /// <param name="email">邮箱</param>
         /// <param name="pwd">密码</param>
         /// <returns>Json</returns>
-        [Route("oauth")]
+        [Route("OAuth")]
         [HttpPost]
-        public IHttpActionResult AccessToken(dynamic user)
+        public IHttpActionResult AccessToken(tbUser_Info user)
         {
-            string Email = Convert.ToString(user.email);
-            string Pwd = Common.Md5.GetMd5String(Convert.ToString(user.pwd));
+            string Email = Convert.ToString(user.User_Emailstr);
+            string Pwd = Common.Md5.GetMd5String(Convert.ToString(user.User_Pwdstr));
+
             string Msg = "";
             string Status = "400";
             string Token = string.Empty;
@@ -50,20 +52,22 @@ namespace MyBuy.WebApi.Controllers
             {
                 Token = OAuth.CreateAccessToken(userInfo.User_Namestr);
                 Msg = "登录成功";
+                Status = "200";
                 Result.Add("token", Token);
             }
             else
             {
                 Msg = "用户名或密码错误！";
-                Result.Add("status", Status);
+
             }
+            Result.Add("status", Status);
             Result.Add("msg", Msg);
             return Json<dynamic>(Result);
         }
         #endregion
 
 
-        #region 通过签权，获取用户信息
+        #region 通过签权，获取用户信息  OK
         ///<summary>
         ///通过唯一标示，获取用户信息（通过视图获取）
         ///</summary>
@@ -74,42 +78,34 @@ namespace MyBuy.WebApi.Controllers
         {
             string Msg = "";
             string Status = "400";
-            JObject Result = new JObject();
             JObject Obj = OAuth.GetData(access_token);
             string Name = Obj["name"].ToString();
             DateTime Exp = Convert.ToDateTime(Obj["exp"]);
-            var userInfo = userInfoService.LoadEntityes(u => u.User_Namestr == Name).FirstOrDefault();
+            var userInfo = viewUserInfoServices.LoadEntityes(u => u.User_Namestr == Name).FirstOrDefault();
             if (Exp.Subtract(DateTime.Now).Days < 0)
             {
                 Status = "401";//过期
                 Msg = "签权过期";
-                Result.Add("msg", Msg);
-                Result.Add("status", Status);
             }
             else if (userInfo != null)
             {
-                Result.Add("id", userInfo.User_IDint);
-                Result.Add("email", userInfo.User_Emailstr);
-                Result.Add("bio", userInfo.User_Biostr);
+                Status = "200";
             }
             else
             {
                 Status = "404";
                 Msg = "没有查找到用户";
-                Result.Add("msg", Msg);
-                Result.Add("status", Status);
             }
-            return Json<dynamic>(Result);
+            return Json<dynamic>(new { msg = Msg, status = Status, user = userInfo });
         }
         #endregion
 
-        #region 用户注册
+        #region 用户注册 OK
         /// <summary>
         /// 用户注册
         /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-
+        /// <param name="user">用户信息对象</param>
+        /// <returns>成功失败状态</returns>
         [HttpPost]
         public IHttpActionResult AddUser(dynamic user)
         {
@@ -124,10 +120,10 @@ namespace MyBuy.WebApi.Controllers
             userInfo.User_Namestr = name;
             userInfo.User_Emailstr = email;
             userInfo.User_Pwdstr = Md5.GetMd5String(pwd);
-
+            userInfo.User_CreateTimedate = DateTime.Now;
             string Code = CreateRenderCode.RenderCode();
             userInfo.User_Codestr = Code;//激活码
-            userInfo.User_Sateint = 0;//0未激活
+            userInfo.User_Sateint = Convert.ToInt32(Sate.Inactive);//0未激活
 
             userInfo.User_Expdate = DateTime.Now.AddDays(2);//两天后过期
 
@@ -148,11 +144,11 @@ namespace MyBuy.WebApi.Controllers
             {
                 Msg = "系统出错，请稍后重试！";
             }
-            return Json<dynamic>(new { msg = Msg, status = Status });
+            return Json<dynamic>(new { msg = Msg, status = Status, name = newUserInfo.User_Namestr });
         }
         #endregion
 
-        #region 检测是否已经有User_Name
+        #region 检测是否已经有User_Name  OK
         /// <summary>
         /// 检测是否已经有User_Name
         /// </summary>
@@ -160,12 +156,12 @@ namespace MyBuy.WebApi.Controllers
         /// <returns></returns>
         [Route("name")]
         [HttpGet]
-        public IHttpActionResult UserNameIsExist(string userName)
+        public IHttpActionResult UserNameIsExist(string user_name)
         {
             string Status = "404";
             string Msg = "";
             JObject Result = new JObject();
-            if (userInfoService.LoadEntityes(u => u.User_Namestr == userName).FirstOrDefault() != null)
+            if (userInfoService.LoadEntityes(u => u.User_Namestr == user_name).FirstOrDefault() != null)
             {
                 Status = "200";
                 Msg = "改用户名已存在";
@@ -180,7 +176,7 @@ namespace MyBuy.WebApi.Controllers
         }
         #endregion
 
-        #region 检测是否Email是否存在
+        #region 检测是否Email是否存在 OK
         /// <summary>
         /// 检测是否Email是否存在
         /// </summary>
@@ -207,5 +203,51 @@ namespace MyBuy.WebApi.Controllers
             return Json<dynamic>(Result);
         }
         #endregion
+
+        #region 账户激活 OK
+        /// <summary>
+        /// 账户激活
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("code")]
+        public IHttpActionResult ActiveAccount(dynamic obj)
+        {
+            string name = Convert.ToString(obj.name);
+            string code = Convert.ToString(obj.code);
+            string Msg = "";
+            string Status = "400";
+            var userInfo = userInfoService.LoadEntityes(u => u.User_Namestr == name).FirstOrDefault();
+            if (Convert.ToDateTime(userInfo.User_Expdate).Subtract(DateTime.Now).Days < 0)
+            {
+                Status = "600";
+                Msg = "激活码已经过期";
+            }
+            else
+            {
+                if (userInfo.User_Codestr == code)
+                {
+                    //tbUser_Info tbUser = new tbUser_Info();
+                    userInfo.User_Sateint = Convert.ToInt32(Sate.Activated);
+                    if (userInfoService.EditEntity(userInfo))
+                    {
+                        Msg = "激活成功";
+                        Status = "200";
+                    }
+                    else
+                    {
+                        Msg = "发生了错误，请稍后再试";
+                    }
+                }
+                else
+                {
+                    Msg = "激活码错误";
+                }
+            }
+            return Json<dynamic>(new { msg = Msg, status = Status });
+        }
+        #endregion
+
     }
 }

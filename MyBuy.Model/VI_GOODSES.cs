@@ -28,5 +28,6 @@ namespace MyBuy.Model
         public int IDint { get; set; }
         public string Type_Namestr { get; set; }
         public string Type_IDstr { get; set; }
+        public Nullable<int> Goods_Delflagint { get; set; }
     }
 }

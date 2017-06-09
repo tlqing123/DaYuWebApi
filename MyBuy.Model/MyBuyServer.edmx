@@ -38,7 +38,8 @@
       [VI_GOODSES].[Goods_Createdate] AS [Goods_Createdate], 
       [VI_GOODSES].[IDint] AS [IDint], 
       [VI_GOODSES].[Type_Namestr] AS [Type_Namestr], 
-      [VI_GOODSES].[Type_IDstr] AS [Type_IDstr]
+      [VI_GOODSES].[Type_IDstr] AS [Type_IDstr], 
+      [VI_GOODSES].[Goods_Delflagint] AS [Goods_Delflagint]
       FROM [dbo].[VI_GOODSES] AS [VI_GOODSES]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VI_USER_INFO" EntityType="MyBuyModel1.Store.VI_USER_INFO" store:Type="Views" store:Schema="dbo" store:Name="VI_USER_INFO">
@@ -153,7 +154,7 @@
           <Property Name="User_Genderchar" Type="char" MaxLength="2" />
           <Property Name="User_Birthdaydate" Type="datetime" />
           <Property Name="User_Phonestr" Type="nvarchar" MaxLength="11" />
-          <Property Name="User_Iconstr" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Iconstr" Type="nvarchar" MaxLength="100" />
           <Property Name="User_Adress" Type="nvarchar" MaxLength="50" />
           <Property Name="User_Hobaystr" Type="nvarchar" MaxLength="50" />
           <Property Name="User_Ipv4str" Type="nvarchar" MaxLength="50" />
@@ -206,6 +207,7 @@
           <Property Name="IDint" Type="int" Nullable="false" />
           <Property Name="Type_Namestr" Type="nvarchar" MaxLength="10" />
           <Property Name="Type_IDstr" Type="nvarchar" MaxLength="10" />
+          <Property Name="Goods_Delflagint" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
       警告 6002: 表/视图“MyBuy.dbo.VI_USER_INFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
@@ -419,7 +421,7 @@
           <Property Name="User_Genderchar" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
           <Property Name="User_Birthdaydate" Type="DateTime" Precision="3" />
           <Property Name="User_Phonestr" Type="String" MaxLength="11" Unicode="true" FixedLength="false" />
-          <Property Name="User_Iconstr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="User_Iconstr" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="User_Adress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="User_Hobaystr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="User_Ipv4str" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -469,6 +471,7 @@
           <Property Name="IDint" Type="Int32" Nullable="false" />
           <Property Name="Type_Namestr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="Type_IDstr" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="Goods_Delflagint" />
         </EntityType>
         <EntityType Name="VI_USER_INFO">
           <Key>
@@ -672,6 +675,7 @@
           <EntitySetMapping Name="VI_GOODSES">
             <EntityTypeMapping TypeName="MyBuyModel1.VI_GOODSES">
               <MappingFragment StoreEntitySet="VI_GOODSES">
+                <ScalarProperty Name="Goods_Delflagint" ColumnName="Goods_Delflagint" />
                 <ScalarProperty Name="User_IDint" ColumnName="User_IDint" />
                 <ScalarProperty Name="User_Namestr" ColumnName="User_Namestr" />
                 <ScalarProperty Name="Goods_Idstr" ColumnName="Goods_Idstr" />
